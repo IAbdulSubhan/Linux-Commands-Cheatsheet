@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux Commands Cheatsheet</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #2c3e50);
+            color: #f0f0f0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 0;
+            margin-bottom: 30px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #00d2ff, #3a7bd5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .stat-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-weight: bold;
+            backdrop-filter: blur(10px);
+        }
+        
+        .commands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .command-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .command-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .command-name {
+            color: #4dabf7;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .command-icon {
+            font-size: 1.5rem;
+            margin-right: 12px;
+            background: rgba(77, 171, 247, 0.2);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .description {
+            margin-bottom: 18px;
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+        
+        .example {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 1.1rem;
+            border-left: 4px solid #4dabf7;
+            margin-top: 15px;
+        }
+        
+        .category-label {
+            display: inline-block;
+            padding: 5px 12px;
+            background: rgba(77, 171, 247, 0.2);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-top: 15px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 50px;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .commands-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .stats {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Linux Commands Cheatsheet</h1>
+            <p class="subtitle">Top 60 essential Linux commands with practical examples based on the popular Linux tutorial video. Learn how to navigate the terminal, manage files, configure networks, and administer systems like a pro.</p>
+            
+            <div class="stats">
+                <div class="stat-box">60 Commands</div>
+                <div class="stat-box">10 Categories</div>
+                <div class="stat-box">Practical Examples</div>
+            </div>
+        </header>
+        
+        <div class="commands-grid">
+            <!-- SSH -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">🔑</div>
+                    ssh
+                </div>
+                <div class="description">Secure Shell - Connect to remote Linux machines securely over a network.</div>
+                <div class="example">ssh user@192.168.1.100</div>
+                <div class="category-label">Remote Access</div>
+            </div>
+            
+            <!-- ls -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">📂</div>
+                    ls
+                </div>
+                <div class="description">List directory contents - shows files and directories in current location.</div>
+                <div class="example">ls -la  # List all including hidden files</div>
+                <div class="category-label">File Management</div>
+            </div>
+            
+            <!-- pwd -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">📍</div>
+                    pwd
+                </div>
+                <div class="description">Print Working Directory - shows the current directory path.</div>
+                <div class="example">pwd</div>
+                <div class="category-label">Navigation</div>
+            </div>
+            
+            <!-- cd -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">📁</div>
+                    cd
+                </div>
+                <div class="description">Change Directory - navigate between folders.</div>
+                <div class="example">cd /home/user/Documents</div>
+                <div class="category-label">Navigation</div>
+            </div>
+            
+            <!-- touch -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">➕</div>
+                    touch
+                </div>
+                <div class="description">Create new empty files or update file timestamps.</div>
+                <div class="example">touch newfile.txt</div>
+                <div class="category-label">File Management</div>
+            </div>
+            
+            <!-- echo -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">📢</div>
+                    echo
+                </div>
+                <div class="description">Display message or add content to files.</div>
+                <div class="example">echo "Hello" >> file.txt</div>
+                <div class="category-label">Text Processing</div>
+            </div>
+            
+            <!-- nano -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">📝</div>
+                    nano
+                </div>
+                <div class="description">Simple text editor for terminal-based file editing.</div>
+                <div class="example">nano file.txt</div>
+                <div class="category-label">Editors</div>
+            </div>
+            
+            <!-- vim -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">✍️</div>
+                    vim
+                </div>
+                <div class="description">Powerful terminal-based text editor with advanced features.</div>
+                <div class="example">vim file.txt</div>
+                <div class="category-label">Editors</div>
+            </div>
+            
+            <!-- cat -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">🐱</div>
+                    cat
+                </div>
+                <div class="description">Concatenate and display file contents quickly.</div>
+                <div class="example">cat file.txt</div>
+                <div class="category-label">Text Processing</div>
+            </div>
+            
+            <!-- shred -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">🔒</div>
+                    shred
+                </div>
+                <div class="description">Securely delete files by overwriting their contents.</div>
+                <div class="example">shred -u secret.txt</div>
+                <div class="category-label">Security</div>
+            </div>
+            
+            <!-- mkdir -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">📁</div>
+                    mkdir
+                </div>
+                <div class="description">Create new directories/folders.</div>
+                <div class="example">mkdir new_folder</div>
+                <div class="category-label">File Management</div>
+            </div>
+            
+            <!-- cp -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">📋</div>
+                    cp
+                </div>
+                <div class="description">Copy files and directories.</div>
+                <div class="example">cp file.txt /backup/</div>
+                <div class="category-label">File Management</div>
+            </div>
+            
+            <!-- mv -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">➡️</div>
+                    mv
+                </div>
+                <div class="description">Move or rename files and directories.</div>
+                <div class="example">mv old.txt new.txt</div>
+                <div class="category-label">File Management</div>
+            </div>
+            
+            <!-- rm -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">🗑️</div>
+                    rm
+                </div>
+                <div class="description">Remove files or directories (use with caution).</div>
+                <div class="example">rm -r old_directory/</div>
+                <div class="category-label">File Management</div>
+            </div>
+            
+            <!-- rmdir -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">🗑️</div>
+                    rmdir
+                </div>
+                <div class="description">Remove empty directories.</div>
+                <div class="example">rmdir empty_folder/</div>
+                <div class="category-label">File Management</div>
+            </div>
+            
+            <!-- ln -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">🔗</div>
+                    ln
+                </div>
+                <div class="description">Create links between files (symbolic or hard links).</div>
+                <div class="example">ln -s target.txt link.txt</div>
+                <div class="category-label">File Management</div>
+            </div>
+            
+            <!-- clear -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">🧹</div>
+                    clear
+                </div>
+                <div class="description">Clear terminal screen.</div>
+                <div class="example">clear</div>
+                <div class="category-label">Terminal</div>
+            </div>
+            
+            <!-- whoami -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">👤</div>
+                    whoami
+                </div>
+                <div class="description">Display current username.</div>
+                <div class="example">whoami</div>
+                <div class="category-label">System Info</div>
+            </div>
+            
+            <!-- sudo -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">🔓</div>
+                    sudo
+                </div>
+                <div class="description">Execute commands with superuser privileges.</div>
+                <div class="example">sudo apt update</div>
+                <div class="category-label">Administration</div>
+            </div>
+            
+            <!-- useradd -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">👥</div>
+                    useradd
+                </div>
+                <div class="description">Create new user accounts (requires sudo).</div>
+                <div class="example">sudo useradd newuser</div>
+                <div class="category-label">User Management</div>
+            </div>
+            
+            <!-- adduser -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">👥</div>
+                    adduser
+                </div>
+                <div class="description">Interactive user creation with more options.</div>
+                <div class="example">sudo adduser newuser</div>
+                <div class="category-label">User Management</div>
+            </div>
+            
+            <!-- su -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">🔄</div>
+                    su
+                </div>
+                <div class="description">Switch user accounts.</div>
+                <div class="example">su - otheruser</div>
+                <div class="category-label">User Management</div>
+            </div>
+            
+            <!-- exit -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">🚪</div>
+                    exit
+                </div>
+                <div class="description">Exit current shell or user session.</div>
+                <div class="example">exit</div>
+                <div class="category-label">Terminal</div>
+            </div>
+            
+            <!-- passwd -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">🔑</div>
+                    passwd
+                </div>
+                <div class="description">Change user password.</div>
+                <div class="example">passwd</div>
+                <div class="category-label">Security</div>
+            </div>
+            
+            <!-- man -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">📖</div>
+                    man
+                </div>
+                <div class="description">Display manual pages for commands.</div>
+                <div class="example">man ls</div>
+                <div class="category-label">Help</div>
+            </div>
+            
+            <!-- whatis -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">❓</div>
+                    whatis
+                </div>
+                <div class="description">Brief description of a command.</div>
+                <div class="example">whatis ls</div>
+                <div class="category-label">Help</div>
+            </div>
+            
+            <!-- which -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">🔍</div>
+                    which
+                </div>
+                <div class="description">Show full path of commands.</div>
+                <div class="example">which python</div>
+                <div class="category-label">Help</div>
+            </div>
+            
+            <!-- wget -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">🌐</div>
+                    wget
+                </div>
+                <div class="description">Download files from the internet.</div>
+                <div class="example">wget https://example.com/file.zip</div>
+                <div class="category-label">Networking</div>
+            </div>
+            
+            <!-- curl -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">🔄</div>
+                    curl
+                </div>
+                <div class="description">Transfer data to/from servers (more features than wget).</div>
+                <div class="example">curl -O https://example.com/file.zip</div>
+                <div class="category-label">Networking</div>
+            </div>
+            
+            <!-- zip -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">📦</div>
+                    zip
+                </div>
+                <div class="description">Compress files into a zip archive.</div>
+                <div class="example">zip archive.zip file1.txt file2.txt</div>
+                <div class="category-label">Compression</div>
+            </div>
+            
+            <!-- unzip -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">📤</div>
+                    unzip
+                </div>
+                <div class="description">Extract files from a zip archive.</div>
+                <div class="example">unzip archive.zip</div>
+                <div class="category-label">Compression</div>
+            </div>
+            
+            <!-- less -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">📄</div>
+                    less
+                </div>
+                <div class="description">View file contents page by page.</div>
+                <div class="example">less longfile.txt</div>
+                <div class="category-label">Text Processing</div>
+            </div>
+            
+            <!-- head -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">👆</div>
+                    head
+                </div>
+                <div class="description">Display first lines of a file.</div>
+                <div class="example">head -n 10 file.txt</div>
+                <div class="category-label">Text Processing</div>
+            </div>
+            
+            <!-- tail -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">👇</div>
+                    tail
+                </div>
+                <div class="description">Display last lines of a file (often used with -f for logs).</div>
+                <div class="example">tail -f /var/log/syslog</div>
+                <div class="category-label">Text Processing</div>
+            </div>
+            
+            <!-- cmp -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">🔄</div>
+                    cmp
+                </div>
+                <div class="description">Compare two files byte by byte.</div>
+                <div class="example">cmp file1.txt file2.txt</div>
+                <div class="category-label">Text Processing</div>
+            </div>
+            
+            <!-- diff -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">🔀</div>
+                    diff
+                </div>
+                <div class="description">Show differences between two files.</div>
+                <div class="example">diff file1.txt file2.txt</div>
+                <div class="category-label">Text Processing</div>
+            </div>
+            
+            <!-- sort -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">🔠</div>
+                    sort
+                </div>
+                <div class="description">Sort lines of text files alphabetically.</div>
+                <div class="example">cat file.txt | sort</div>
+                <div class="category-label">Text Processing</div>
+            </div>
+            
+            <!-- find -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">🔍</div>
+                    find
+                </div>
+                <div class="description">Search for files in a directory hierarchy.</div>
+                <div class="example">find /home -name "*.txt"</div>
+                <div class="category-label">File Management</div>
+            </div>
+            
+            <!-- chmod -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">🛡️</div>
+                    chmod
+                </div>
+                <div class="description">Change file permissions.</div>
+                <div class="example">chmod +x script.sh</div>
+                <div class="category-label">Permissions</div>
+            </div>
+            
+            <!-- chown -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">👑</div>
+                    chown
+                </div>
+                <div class="description">Change file owner and group.</div>
+                <div class="example">chown user:group file.txt</div>
+                <div class="category-label">Permissions</div>
+            </div>
+            
+            <!-- ifconfig -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">📡</div>
+                    ifconfig
+                </div>
+                <div class="description">Display network interface configuration (deprecated on some systems).</div>
+                <div class="example">ifconfig</div>
+                <div class="category-label">Networking</div>
+            </div>
+            
+            <!-- ip -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">🌐</div>
+                    ip
+                </div>
+                <div class="description">Modern replacement for ifconfig with more features.</div>
+                <div class="example">ip address show</div>
+                <div class="category-label">Networking</div>
+            </div>
+            
+            <!-- grep -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">🔎</div>
+                    grep
+                </div>
+                <div class="description">Search text using patterns (extremely powerful).</div>
+                <div class="example">grep "error" /var/log/syslog</div>
+                <div class="category-label">Text Processing</div>
+            </div>
+            
+            <!-- awk -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">🛠️</div>
+                    awk
+                </div>
+                <div class="description">Pattern scanning and text processing language.</div>
+                <div class="example">awk '{print $1}' file.txt</div>
+                <div class="category-label">Text Processing</div>
+            </div>
+            
+            <!-- ping -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">📶</div>
+                    ping
+                </div>
+                <div class="description">Test network connectivity to a host.</div>
+                <div class="example">ping google.com</div>
+                <div class="category-label">Networking</div>
+            </div>
+            
+            <!-- traceroute -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">🛣️</div>
+                    traceroute
+                </div>
+                <div class="description">Trace the network path to a host.</div>
+                <div class="example">traceroute google.com</div>
+                <div class="category-label">Networking</div>
+            </div>
+            
+            <!-- netstat -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">📊</div>
+                    netstat
+                </div>
+                <div class="description">Display network connections, routing tables, and interface statistics.</div>
+                <div class="example">netstat -tulpn</div>
+                <div class="category-label">Networking</div>
+            </div>
+            
+            <!-- ss -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">📡</div>
+                    ss
+                </div>
+                <div class="description">Modern replacement for netstat.</div>
+                <div class="example">ss -tulpn</div>
+                <div class="category-label">Networking</div>
+            </div>
+            
+            <!-- ufw -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">🔥</div>
+                    ufw
+                </div>
+                <div class="description">Uncomplicated Firewall - simplified interface for iptables.</div>
+                <div class="example">sudo ufw allow 22/tcp</div>
+                <div class="category-label">Security</div>
+            </div>
+            
+            <!-- uname -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">🐧</div>
+                    uname
+                </div>
+                <div class="description">Print system information.</div>
+                <div class="example">uname -a</div>
+                <div class="category-label">System Info</div>
+            </div>
+            
+            <!-- free -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">💾</div>
+                    free
+                </div>
+                <div class="description">Display amount of free and used memory.</div>
+                <div class="example">free -h</div>
+                <div class="category-label">System Info</div>
+            </div>
+            
+            <!-- df -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">💽</div>
+                    df
+                </div>
+                <div class="description">Show disk space usage.</div>
+                <div class="example">df -h</div>
+                <div class="category-label">System Info</div>
+            </div>
+            
+            <!-- ps -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">📈</div>
+                    ps
+                </div>
+                <div class="description">Report current processes.</div>
+                <div class="example">ps aux</div>
+                <div class="category-label">Processes</div>
+            </div>
+            
+            <!-- top -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">📊</div>
+                    top
+                </div>
+                <div class="description">Display Linux processes in real-time.</div>
+                <div class="example">top</div>
+                <div class="category-label">Processes</div>
+            </div>
+            
+            <!-- kill -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">💥</div>
+                    kill
+                </div>
+                <div class="description">Terminate processes by ID.</div>
+                <div class="example">kill -9 1234</div>
+                <div class="category-label">Processes</div>
+            </div>
+            
+            <!-- pkill -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">💣</div>
+                    pkill
+                </div>
+                <div class="description">Terminate processes by name.</div>
+                <div class="example">pkill -f "process_name"</div>
+                <div class="category-label">Processes</div>
+            </div>
+            
+            <!-- systemctl -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">⚙️</div>
+                    systemctl
+                </div>
+                <div class="description">Control systemd system and service manager.</div>
+                <div class="example">sudo systemctl restart nginx</div>
+                <div class="category-label">Services</div>
+            </div>
+            
+            <!-- history -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">🕰️</div>
+                    history
+                </div>
+                <div class="description">Display command history.</div>
+                <div class="example">history</div>
+                <div class="category-label">Terminal</div>
+            </div>
+            
+            <!-- shutdown -->
+            <div class="command-card">
+                <div class="command-name">
+                    <div class="command-icon">⏻</div>
+                    shutdown
+                </div>
+                <div class="description">Shut down or reboot the system.</div>
+                <div class="example">sudo shutdown -h now</div>
+                <div class="category-label">System</div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Linux Commands Cheatsheet • Based on "Top 60 Linux Commands" tutorial • Created with HTML/CSS</p>
+            <p>All commands include practical examples from the video transcript</p>
+        </footer>
+    </div>
+</body>
+</html>
