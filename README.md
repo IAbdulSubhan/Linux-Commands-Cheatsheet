@@ -5,8 +5,6 @@
 
 A beautifully designed, interactive cheatsheet of 60 essential Linux commands based on the popular Linux tutorial video. Perfect for beginners and experienced users alike.
 
-![Screenshot](screenshot.png) <!-- Add a screenshot if you have one -->
-
 ## Features ✨
 
 - **60 Essential Commands**: Covers all commands from the tutorial video
@@ -28,10 +26,4 @@ A beautifully designed, interactive cheatsheet of 60 essential Linux commands ba
 
 ## How to Use 🚀
 
-Simply visit the [GitHub Pages site](https://iabdulsubban.github.io/Linux-Commands-Cheatsheet/) to access the cheatsheet. No installation required!
-
-For local development:
-```bash
-git clone https://github.com/iabdulsubhan/Linux-Commands-Cheatsheet.git
-cd Linux-Commands-Cheatsheet
-
+Simply visit the [GitHub Pages site](https://iabdulsubhan.github.io/Linux-Commands-Cheatsheet/) to access the cheatsheet. No installation required!
